@@ -23,11 +23,11 @@ def _get_db() -> Chroma:
     return Chroma(
         persist_directory=DB_DIR,
         embedding_function=OpenAIEmbeddings(
+            model="text-embedding-3-small",
             api_key=OPENAI_API_KEY,
-            base_url=OPENAI_BASE_URL
+            base_url=OPENAI_BASE_URL  # ✅ correct argument
         )
     )
-
 
 def ingest_pdf_paths(paths: List[str]) -> int:
     """
@@ -86,3 +86,10 @@ def answer_query(q: str) -> Tuple[str, List[str]]:
             sources.append(src)
 
     return result.get("result", ""), sources
+
+
+""" #test
+from langchain_openai import OpenAIEmbeddings
+e = OpenAIEmbeddings(model="text-embedding-3-small", api_key="YOUR_KEY", base_url="https://api.openai.com/v1")
+print(e.embed_query("Hello world"))
+"""
