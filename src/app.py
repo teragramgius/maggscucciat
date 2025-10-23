@@ -1,4 +1,7 @@
 import streamlit as st
+from dotenv import load_dotenv
+load_dotenv()
+
 from rag import answer_query, ingest_pdf_paths
 
 st.set_page_config(page_title="EU-Policy RAG Assistant", page_icon="📘")

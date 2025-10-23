@@ -6,8 +6,7 @@ from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
-from dotenv import load_dotenv
-load_dotenv()
+
 
 DB_DIR = os.getenv("CHROMA_DB_DIR", ".chroma")
 
