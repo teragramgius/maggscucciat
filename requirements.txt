@@ -1,0 +1,8 @@
+langchain
+openai>=1.0.0
+chromadb
+tiktoken
+pydantic
+python-dotenv
+streamlit
+pypdf
